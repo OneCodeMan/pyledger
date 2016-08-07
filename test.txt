@@ -1,2 +1,6 @@
-food, 10
-clothes, 50
+food, 50
+clothes, 250
+
+alcohol,45
+wraps,10
+fist,10
