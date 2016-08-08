@@ -18,7 +18,6 @@ class Ledger:
 		# Slice item string if too long
 
 	def display_ledger(self):
+		pass
 		# Read csv
 		# Output in a list
-		# Then output in a nice format
-
