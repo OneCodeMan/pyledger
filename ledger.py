@@ -1,41 +1,39 @@
 import csv
-LINES = "-" * 50
 
 class Ledger:
 
 	def __init__(self):
-
-		self.total = 0
-		self.head = "ITEM \t\t\t| PRICE\n{}".format(LINES)
-		self.body = ""
-		self.legs = "{}\nTOTAL: \t\t\t| {}\n".format(LINES, self.total)
-
-		# For CSV
 		self.entries = []
+		self.total = 0.0
+
+		# CSV stuff
+		with open("myledger.txt", "w") as ledgerFile:
+			ledgerFileWriter = csv.writer(ledgerFile)
+			ledgerFileWriter.writerow(["ITEM", "PRICE"])
+
+		ledgerFile.close()
 
 	def add(self, item, price):
-		self.entries.append([item, price])
-		self.body += "{} \t\t\t| {}\n".format(item, price)
+		
+		# Slice item string if over 50 characters
+		if (len(item) > 50): 
+			item = item[:50]
+
+		# Make price a float with 2 decimal places
+		price = float(price)
+
+		# Add price of item entered to total
 		self.total += price
-		self.legs = "{}\nTOTAL: \t\t\t| {}\n".format(LINES, self.total)
 
-	def display_ledger(self):
-		print("{} \n {} \n{}".format(self.head, self.body, self.legs))
-
-	def get_entries(self):
-		print("Entries: {}".format(self.entries))
+		# Add item and price to entries
+		self.entries.append([item, price])
 
 	def get_total(self):
-		print("Total: {}".format(self.total))
+		print(self.total)
 
-led = Ledger()
-led.add("item1", 200)
-led.add("item2", 500)
-led.add("item2", 500)
-led.add("item2", 500)
-led.add("item2", 500)
-led.add("item2", 500)
-led.add("item2", 500)
-led.get_entries()
-led.display_ledger()
-led.get_total()
+	def get_entries(self):
+		print(self.entries)
+
+
+
+l = Ledger()
