@@ -30,14 +30,6 @@ import ledger as l
 
 led = l.Ledger()
 
-class TestLedgerClass(unittest.TestCase):
-
-	def initial_total_zero(self):
-		self.assertEqual(led._total, 0.0)
-
-	def initial_entries_empty(self):
-		self.assertEqual(led._entries, [])
-
 
 
 

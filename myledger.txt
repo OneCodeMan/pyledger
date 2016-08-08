@@ -1,3 +1,2 @@
-"['ITEM', 'PRICE']"
-
-item1,200.0
+item1,200
+item2,500
