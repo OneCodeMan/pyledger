@@ -28,9 +28,12 @@ class Ledger:
 		# Slice item string if too long
 		if len(item) > 50:
 			item = item[:49]
-			
+
 		# Add to csv
 		with open(self._name, "a") as f:
 			writer = csv.writer(f)
 			writer.writerow([item, price])
 		f.close()
+
+	def get_total(self):
+		print(self._total)
