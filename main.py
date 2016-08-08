@@ -14,8 +14,8 @@ else:
 		print("(Enter 0 0 to quit)")
 		item, price = input("Enter an item and price, separated by a space. (eg: item1, 10):\n").split()
 
-		if int(item) == 0 and int(price) == 0:
-			print("Bye")
+		if item == "0" and int(price) == 0:
 			sys.exit()
 
 		led.add(item, price)
+		led.display_ledger()
