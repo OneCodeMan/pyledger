@@ -1,1 +1,3 @@
-ITEM,PRICE
+"['ITEM', 'PRICE']"
+
+item1,200.0
