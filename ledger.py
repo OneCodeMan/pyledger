@@ -88,3 +88,10 @@ class Ledger:
 
 	def get_total(self):
 		print(self._total)
+
+"""
+Improvements:
+1. Add delete entry option
+2. User is able to display what ledger they want
+3. Different table formats
+"""
