@@ -1,4 +1,5 @@
 import csv
+from tabulate import tabulate
 
 class Ledger:
 
@@ -15,15 +16,22 @@ class Ledger:
 		# Read csv
 		with open(self._name, 'r') as f:
 			reader = csv.reader(f)
-			as_list = list(reader)
+			csv_entries = list(reader) # NESTED LIST OF ENTRIES
 		f.close()
 
-		# Output in a list
-		print(as_list)
+		# Gets rid of empty lists
+		entries = [entry for entry in csv_entries if len(entry)]
+		entries.append(["TOTAL", self._total])
+
+		headers = ["ITEM", "PRICE ($)"]
+		tablefmt = "grid"
+
+		# Output in pretty form
+		print(tabulate(entries, headers, tablefmt))
 
 	def add(self, item, price):
 		# Add total to price
-		self._total += price
+		self._total += float(price)
 
 		# Slice item string if too long
 		if len(item) > 50:
