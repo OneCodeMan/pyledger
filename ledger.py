@@ -33,6 +33,8 @@ from tabulate import tabulate
 class Ledger:
 
 	def __init__(self):
+		''' Initialize new text file with an initial total of zero. '''
+
 		self._total = 0.0
 
 		# Look for all text files and assign new ledger instance as
@@ -56,6 +58,8 @@ class Ledger:
 		f.close()
 
 	def display_ledger(self):
+		''' Take csv contents and display as a table on command line. '''
+
 		# Read csv
 		with open(self._name, 'r') as f:
 			reader = csv.reader(f)
@@ -73,6 +77,8 @@ class Ledger:
 		print(tabulate(entries, headers, tablefmt))
 
 	def add(self, item, price):
+		''' Add new entries to ledger. '''
+
 		# Add total to price
 		self._total += float(price)
 
@@ -87,6 +93,7 @@ class Ledger:
 		f.close()
 
 	def get_total(self):
+		''' Accessor for total. Just for debugging. '''
 		print(self._total)
 
 """

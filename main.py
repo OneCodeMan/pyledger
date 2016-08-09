@@ -2,7 +2,6 @@ import ledger as l
 import sys
 import time
 
-
 print("Creating new ledger...")
 time.sleep(2)
 
